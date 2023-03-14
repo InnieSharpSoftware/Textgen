@@ -1,0 +1,6 @@
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\bin\Debug\textgen.exe.config
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\bin\Debug\textgen.exe
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\bin\Debug\textgen.pdb
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\obj\Debug\textgen.csprojResolveAssemblyReference.cache
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\obj\Debug\textgen.exe
+C:\Users\senji\Documents\SharpDevelop Projects\textgen\textgen\obj\Debug\textgen.pdb
