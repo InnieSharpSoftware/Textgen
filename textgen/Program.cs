@@ -9,6 +9,19 @@ namespace textgen
 {
 	class Program
 	{
+		private static readonly Random random = new Random();
+        private static readonly string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        public static string Generate(int len)
+        {
+            var buffer = new char[len];
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                buffer[i] = alphabet[random.Next(alphabet.Length)];
+            }
+            return new string(buffer);
+        }
+		
 		public static void Main(string[] args)
 		{
 			string outputfile = "textgen_output.txt";
@@ -21,7 +34,7 @@ namespace textgen
 			{
 				if(arg == "/help" || arg == "/?" || arg == "/h")
 				{
-					Console.WriteLine("/help /? /h   Выводит все доступные аргументы\n/outputfile /of   Задаёт путь к файлу с результатом\n/start /s   Задаёт начальный символ или строку\n            $n - Новая строка\n            $t - Таб\n/end /e   Задаёт конечный символ или строку\n          $n - Новая строка\n          $t - Таб\n/base /b /mid   Задаёт основной символ или строку\n                $i - Число, которое увеличевается на единицу при повторном использовании\n                $n - Новая строка\n                $t - Таб\n/count /c   Задаёт кол-во написаний\n\nПример: \"/s=int[] a =$n{$n\" /e=} /b=$t$i /c=12 /of=result.txt\n\nДанная справка сделана для версии ALPHA2.\nСделал InnieSharp.");
+					Console.WriteLine("/help /? /h   Выводит все доступные аргументы\n/outputfile /of   Задаёт путь к файлу с результатом\n/start /s   Задаёт начальный символ или строку\n            $n - Новая строка\n            $t - Таб\n/end /e   Задаёт конечный символ или строку\n          $n - Новая строка\n          $t - Таб\n/base /b /mid   Задаёт основной символ или строку\n                $i - Число, которое увеличевается на единицу при повторном использовании\n                $n - Новая строка\n                $t - Таб\n                $k - Steam-ключ\n                $p - Пароль\n/count /c   Задаёт кол-во написаний\n\nПример: \"/s=int[] a =$n{$n\" /e=} /b=$t$i /c=12 /of=result.txt\n\nДанная справка сделана для версии ALPHA3.\nСделал etar125.");
 				}
 				else if(arg.StartsWith("/outputfile=") || arg.StartsWith("/of="))
 				{
@@ -79,6 +92,14 @@ namespace textgen
 					else if(a[ii+1] == 't')
 					{
 						res += "\t";
+					}
+					else if(a[ii+1] == 'k')
+					{
+						res += Generate(5) + "-" + Generate(5) + "-" + Generate(5) + "-" + Generate(5) + "-" + Generate(5);
+					}
+					else if(a[ii+1] == 'p')
+					{
+						res += Generate(random.Next(101));
 					}
 					ii++;
 				}
